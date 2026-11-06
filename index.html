@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brushstrokes · Home</title>
+  <link rel="stylesheet" href="bs.css">
+</head>
+<body>
+  <header class="top">
+    <div class="title">
+      <h1>Brushstrokes</h1>
+      <p>College Art Society · DU</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="easel" aria-label="Student card">
+      <div class="board">
+        <div class="avatar" id="avatar" aria-hidden="true"></div>
+        <div class="info">
+          <h2 id="name"></h2>
+          <p id="course"></p>
+          <p id="roll"></p>
+          <p id="college"></p>
+        </div>
+      </div>
+      <div class="legs"><span></span><span></span></div>
+    </section>
+
+    <nav class="palette" aria-label="Main menu">
+      <span class="hole" aria-hidden="true"></span>
+      <a class="dab c-home"  style="--i:0" href="index.html"><i>🏠</i>Home</a>
+      <a class="dab c-att"   style="--i:1" href="attendance.html"><i>✅</i>Attendance</a>
+      <a class="dab c-ev"    style="--i:2" href="events.html"><i>🎉</i>Events</a>
+      <a class="dab c-act"   style="--i:3" href="activity.html"><i>🎨</i>Activity</a>
+      <a class="dab c-info"  style="--i:4" href="info.html"><i>ℹ️</i>Info</a>
+      <a class="dab c-ann"   style="--i:5" href="announcements.html"><i>📢</i>Announce</a>
+    </nav>
+  </main>
+
+  <footer>
+    <p class="f1">Brushstroke Society &nbsp;·&nbsp; Ramanujan College &nbsp;·&nbsp; University of Delhi</p>
+    <p>Copyright © <a href="#">RDSC</a> | Ramanujan College 2026</p>
+    <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a></p>
+  </footer>
+
+  <button id="themeToggle" class="theme" aria-label="Toggle dark mode" title="Dark mode">🌙</button>
+  <script src="bs.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+:root{
+  --bg:#fcf3ee; --ink:#3a2340; --muted:#6b5870; --card:#fffaf2; --wood:#e9b46f; --wood2:#d79a50;
+  --maroon:#5c0f20; --cream:#fff1d6;
+}
+[data-theme="dark"]{
+  --bg:#17101a; --ink:#f4e7f2; --muted:#bfa9c4; --card:#2a1e2e; --wood:#a8723a; --wood2:#7d4f24;
+}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%}
+body{font-family:"Trebuchet MS","Segoe UI",sans-serif;background:var(--bg);color:var(--ink);
+  display:flex;flex-direction:column;min-height:100vh;transition:background .3s,color .3s}
+
+/* header uses image 2 */
+.top{height:130px;background:#fff url("assets/header-bg.png") center/cover repeat-x;
+  display:flex;align-items:center;justify-content:center}
+[data-theme="dark"] .top{background-color:#fff;filter:brightness(.8)}
+.title{background:rgba(255,255,255,.82);backdrop-filter:blur(4px);padding:8px 26px;border-radius:22px;text-align:center}
+.title h1{font:italic 800 clamp(2rem,8vw,3rem)/1 "Brush Script MT","Segoe Script",cursive;
+  background:linear-gradient(90deg,#a3204f,#e06b3a,#4aa35a,#2a78c9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.title p{color:#4a2c58;font-size:.85rem;margin-top:2px}
+
+main{flex:1;padding:22px 16px 40px;display:flex;flex-direction:column;align-items:center;gap:34px}
+
+/* easel card */
+.easel{width:min(94vw,460px)}
+.board{display:flex;gap:16px;align-items:center;padding:20px;background:var(--card);
+  border:10px solid #c88a45;border-radius:6px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.avatar{flex:none;width:92px;height:92px;border-radius:50%;border:4px solid #f0b95e;
+  background:linear-gradient(#8ec5ff,#dcd2ff);display:grid;place-items:center;font-size:2rem;font-weight:700;color:#3a2340}
+.info h2{font-size:1.3rem;margin-bottom:6px}
+.info p{font-size:.92rem;color:var(--muted);line-height:1.6}
+.legs{display:flex;justify-content:space-around;padding:0 18%}
+.legs span{width:14px;height:44px;background:#a86f35;transform:skewX(8deg)}
+.legs span:last-child{transform:skewX(-8deg)}
+
+/* round palette: 6 buttons on a ring */
+.palette{--size:min(92vw,420px);position:relative;width:var(--size);height:var(--size);border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--wood),var(--wood2));
+  box-shadow:inset 0 -8px 18px rgba(0,0,0,.18),0 12px 26px rgba(0,0,0,.25)}
+.hole{position:absolute;left:50%;top:50%;width:19%;height:19%;transform:translate(-50%,-50%);border-radius:50%;
+  background:var(--bg);box-shadow:inset 0 4px 8px rgba(0,0,0,.35)}
+.dab{--r:calc(var(--size)*.33);position:absolute;left:50%;top:50%;width:25%;height:25%;margin:-12.5% 0 0 -12.5%;
+  border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  color:#fff;text-decoration:none;font-size:clamp(.62rem,2.6vw,.82rem);font-weight:700;text-align:center;
+  transform:rotate(calc(var(--i)*60deg - 90deg)) translateY(calc(var(--r)*-1)) rotate(calc(var(--i)*-60deg + 90deg));
+  box-shadow:inset 0 -5px 8px rgba(0,0,0,.2),0 5px 8px rgba(0,0,0,.3);transition:filter .2s}
+.dab i{font-style:normal;font-size:clamp(1.2rem,6vw,1.9rem)}
+.dab:hover,.dab:focus-visible{filter:brightness(1.12);outline:3px solid #fff}
+.dab:active{box-shadow:inset 0 4px 8px rgba(0,0,0,.35)}
+.c-home{background:#9b2146}.c-att{background:#4fa45c}.c-ev{background:#e8764f}
+.c-act{background:#9a63e0}.c-info{background:#3c8fe0}.c-ann{background:#f0a020}
+
+/* footer from image 3 */
+footer{background:var(--maroon);color:var(--cream);text-align:center;padding:22px 16px 26px;font-size:.95rem;line-height:1.9}
+footer .f1{font-weight:700;font-size:1.05rem}
+footer a{color:var(--cream)}
+
+/* dark mode switch, bottom-left */
+.theme{position:fixed;left:16px;bottom:16px;width:46px;height:46px;border-radius:50%;border:2px solid #b98a2d;
+  background:#2a1a14;color:#ffc94a;font-size:1.25rem;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.4);z-index:10}
+.theme:focus-visible{outline:3px solid #fff}
