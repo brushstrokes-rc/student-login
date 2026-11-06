@@ -13,12 +13,15 @@ body{font-family:"Nunito","Segoe UI",sans-serif;color:var(--ink);min-height:100v
   background:radial-gradient(60% 38% at 88% 28%,var(--bg2),transparent),radial-gradient(50% 32% at 8% 62%,rgba(255,170,150,.28),transparent),var(--bg);
   transition:background .3s,color .3s}
 
-/* header: image 2 + full-width heading */
-.top{position:relative;display:grid;place-items:center;padding:14px 0 36px}
-.top::before{content:"";position:absolute;inset:0;background:#fff var(--hdr) center/cover no-repeat}
-.top::after{content:"";position:absolute;inset:0;background:var(--veil)}
-[data-theme="dark"] .top::before{filter:brightness(.85)}
-.logo-svg{position:relative;z-index:1;width:min(97vw,1000px);height:auto;overflow:visible}
+/* header: self-made art, logos left/right, colourful heading */
+.top{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(6px,2vw,24px);
+  padding:16px clamp(10px,3vw,44px) 38px;background:linear-gradient(120deg,#fff4ea,#f1e6fb 55%,#e2f2fb)}
+[data-theme="dark"] .top{background:linear-gradient(120deg,#1f1428,#261b35 55%,#162534)}
+.art{position:absolute;inset:0;width:100%;height:100%}
+[data-theme="dark"] .art{opacity:.55}
+.logo{position:relative;z-index:1;width:clamp(56px,12vw,118px);height:auto;aspect-ratio:1;object-fit:contain;background:#fff;border-radius:50%;padding:4px;box-shadow:0 5px 12px rgba(60,25,10,.28)}
+.logo.rc{padding:0;object-fit:cover}
+.logo-svg{position:relative;z-index:1;width:100%;max-width:780px;justify-self:center;height:auto;overflow:visible}
 .logo-svg text{font-family:"Kaushan Script","Brush Script MT",cursive}
 .logo-svg .halo{stroke:var(--halo)}
 .wave{position:absolute;z-index:2;left:0;bottom:-1px;width:100%;height:26px;fill:var(--bg)}
