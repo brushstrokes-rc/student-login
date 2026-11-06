@@ -70,3 +70,10 @@ brush.addEventListener("click", () => {
   $("#tip").setAttribute("fill", paints[pi]);
   say("Brush ne naya rang uthaya 🎨");
 });
+
+// ---------- Install as app (PWA) ----------
+const ib = $("#installBtn"); let deferred;
+addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferred = e; ib.hidden = false; });
+ib.addEventListener("click", async () => { deferred.prompt(); await deferred.userChoice; ib.hidden = true; deferred = null; });
+addEventListener("appinstalled", () => ib.hidden = true);
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
