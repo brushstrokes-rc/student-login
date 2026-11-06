@@ -4,48 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Brushstrokes · Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="bs.css">
 </head>
 <body>
-  <header class="top">
-    <div class="title">
-      <h1>Brushstrokes</h1>
-      <p>College Art Society · DU</p>
-    </div>
-  </header>
+<header class="top">
+  <div class="plate">
+    <h1 class="logo">Brushstrokes</h1>
+    <svg class="swoosh" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#a3204f"/><stop offset=".35" stop-color="#e8764f"/><stop offset=".65" stop-color="#4fa45c"/><stop offset="1" stop-color="#2a78c9"/></linearGradient></defs>
+      <path d="M2 9 Q150 -3 298 6" fill="none" stroke="url(#sw)" stroke-width="3.5" stroke-linecap="round"/>
+    </svg>
+    <p>College Art Society · DU</p>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 30" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C200 0 400 40 600 18 S1000 0 1200 24 V30Z"/></svg>
+</header>
 
-  <main>
-    <section class="easel" aria-label="Student card">
-      <div class="board">
-        <div class="avatar" id="avatar" aria-hidden="true"></div>
-        <div class="info">
-          <h2 id="name"></h2>
-          <p id="course"></p>
-          <p id="roll"></p>
-          <p id="college"></p>
-        </div>
+<main>
+  <section class="easel" id="easel" aria-label="Student card">
+    <div class="clamp"></div>
+    <div class="board">
+      <div class="avatar-wrap"><div class="avatar" id="avatar"></div><span class="leaf" aria-hidden="true">🌿</span></div>
+      <div class="info">
+        <h2><span id="name"></span> <b class="spark" aria-hidden="true">✦</b></h2>
+        <p class="row"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg><span id="course"></span></p>
+        <p class="row"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7z"/></svg><span id="roll"></span></p>
+        <p class="row"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M9 11h.01M15 11h.01"/></svg><span id="college"></span></p>
       </div>
-      <div class="legs"><span></span><span></span></div>
-    </section>
+      <div class="flourish"><span>🎨</span></div>
+    </div>
+    <div class="shelf"></div>
+    <div class="legs"><span></span><span></span></div>
+  </section>
 
-    <nav class="palette" aria-label="Main menu">
-      <span class="hole" aria-hidden="true"></span>
-      <a class="dab c-home"  style="--i:0" href="index.html"><i>🏠</i>Home</a>
-      <a class="dab c-att"   style="--i:1" href="attendance.html"><i>✅</i>Attendance</a>
-      <a class="dab c-ev"    style="--i:2" href="events.html"><i>🎉</i>Events</a>
-      <a class="dab c-act"   style="--i:3" href="activity.html"><i>🎨</i>Activity</a>
-      <a class="dab c-info"  style="--i:4" href="info.html"><i>ℹ️</i>Info</a>
-      <a class="dab c-ann"   style="--i:5" href="announcements.html"><i>📢</i>Announce</a>
+  <div class="stage" id="stage">
+    <nav class="palette" id="palette" aria-label="Main menu">
+      <span class="hole" aria-hidden="true"><i></i></span>
+      <a class="dab" data-page="home" style="--i:0;--a:#c23a62;--b:#7d1634" href="index.html">
+        <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/></svg>Home</a>
+      <a class="dab" style="--i:1;--a:#6cc07a;--b:#2f8240" href="attendance.html">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>Attendance</a>
+      <a class="dab" style="--i:2;--a:#ff9468;--b:#d4542c" href="events.html">
+        <svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>Events</a>
+      <a class="dab" style="--i:3;--a:#b98af0;--b:#7a3fc9" href="activity.html">
+        <svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Activity</a>
+      <a class="dab" style="--i:4;--a:#62b1f5;--b:#2569b8" href="info.html">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></svg>Info</a>
+      <a class="dab" style="--i:5;--a:#ffc24a;--b:#d98308" href="announcements.html">
+        <svg viewBox="0 0 24 24"><path d="M3 11v2l12 5V6zM15 8l5-2v12l-5-2M6 13l1 6h3l-1-5"/></svg>Announce</a>
     </nav>
-  </main>
 
-  <footer>
-    <p class="f1">Brushstroke Society &nbsp;·&nbsp; Ramanujan College &nbsp;·&nbsp; University of Delhi</p>
-    <p>Copyright © <a href="#">RDSC</a> | Ramanujan College 2026</p>
-    <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a></p>
-  </footer>
+    <svg class="brush" id="brush" viewBox="0 0 320 44" role="img" aria-label="Paint brush (click to change colour)">
+      <defs>
+        <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b57544"/><stop offset=".5" stop-color="#7a4624"/><stop offset="1" stop-color="#47260f"/></linearGradient>
+        <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset=".5" stop-color="#a9adb3"/><stop offset="1" stop-color="#d9dbdf"/></linearGradient>
+      </defs>
+      <path d="M118 15 L304 19 Q316 22 304 25 L118 29Z" fill="url(#hg)"/>
+      <rect x="66" y="12" width="58" height="20" rx="4" fill="url(#fg)"/>
+      <path d="M84 12v20M96 12v20M108 12v20" stroke="#8a8e95" stroke-width="1.2"/>
+      <path d="M4 22 Q12 10 44 12 L68 13 L68 31 L44 32 Q12 34 4 22Z" fill="#3b2418"/>
+      <path id="tip" d="M4 22 Q8 15 26 13 Q23 22 26 31 Q8 29 4 22Z" fill="#e8764f"/>
+    </svg>
+  </div>
+</main>
 
-  <button id="themeToggle" class="theme" aria-label="Toggle dark mode" title="Dark mode">🌙</button>
-  <script src="bs.js"></script>
+<footer>
+  <p class="f1">Brushstroke Society &nbsp;·&nbsp; Ramanujan College &nbsp;·&nbsp; University of Delhi</p>
+  <p>Copyright © <a href="#">RDSC</a> | Ramanujan College 2026</p>
+  <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a></p>
+</footer>
+
+<button id="themeToggle" class="theme" aria-label="Toggle dark mode"><span>🌙</span></button>
+<div class="toast" id="toast" role="status"></div>
+<script src="bs.js"></script>
 </body>
 </html>
