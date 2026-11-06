@@ -1,16 +1,32 @@
 {
+  "id": "/student-login/brushstrokes-student",
   "name": "Brushstrokes - College Art Society",
-  "short_name": "Brushstrokes-student",
+  "short_name": "Brushstrokes",
   "description": "Brushstrokes student portal: attendance, events, activities and announcements.",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/student-login/index.html",
+  "scope": "/student-login/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fbf1ec",
   "theme_color": "#5c0f20",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
