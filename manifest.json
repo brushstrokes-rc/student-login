@@ -1,7 +1,7 @@
 {
   "id": "/student-login/?app=brushstrokes-v2",
   "name": "Brushstrokes - College Art Society",
-  "short_name": "Brushstrokes",
+  "short_name": "Brushstrokes student",
   "description": "Brushstrokes student portal: attendance, events, activities and announcements.",
   "start_url": "/student-login/index.html?source=pwa",
   "scope": "/student-login/",
