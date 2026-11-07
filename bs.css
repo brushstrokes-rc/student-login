@@ -3,15 +3,20 @@
   --bg:#fbf1ec;--bg2:#e9defa;--ink:#3a2340;--muted:#6b5870;--paper:#fffaf1;
   --wood1:#f3c98a;--wood2:#d99c52;--wood3:#a86a28;--maroon:#5c0f20;--cream:#fff1d6;--shadow:rgba(70,30,20,.3);
   --plate:rgba(255,255,255,.8);--halo:#fff;--veil:transparent;--c1:#ffffff;--c2:#f7f6f2;--icon:#7d1634;
+  --focus-ring:#2a78c9;--focus-ring-width:3px;--focus-ring-offset:2px;
+  --transition-fast:150ms ease-out;--transition-base:200ms ease-out;
 }
 [data-theme="dark"]{
   --bg:#150f19;--bg2:#2a1d38;--ink:#f6e9f3;--muted:#c3adc8;--paper:#2b2030;
   --wood1:#b98348;--wood2:#8a5a28;--wood3:#5d3813;--shadow:rgba(0,0,0,.65);--plate:rgba(28,18,34,.78);--halo:#1b1222;--veil:transparent;--c1:#ffffff;--c2:#f7f6f2;--icon:#ffc94a;
+  --focus-ring:#a3e9ff;
 }
 *{box-sizing:border-box;margin:0}
-body{font-family:"Nunito","Segoe UI",sans-serif;color:var(--ink);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;
+*:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset);border-radius:4px}
+body{font-family:"Nunito","Segoe UI",sans-serif;color:var(--ink);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;overflow-x:hidden;
   background:radial-gradient(60% 38% at 88% 28%,var(--bg2),transparent),radial-gradient(50% 32% at 8% 62%,rgba(255,170,150,.28),transparent),var(--bg);
   transition:background .3s,color .3s}
+@supports (min-height:100dvh){body{min-height:100dvh}}
 
 /* header: self-made art, logos left/right, colourful heading */
 .top{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(6px,2vw,24px);
@@ -59,17 +64,17 @@ main{flex:1;display:flex;flex-direction:column;align-items:center;gap:34px;paddi
 .stage{--size:min(92vw,460px);position:relative;width:var(--size);aspect-ratio:400/360;margin-bottom:8%}
 .palette{position:absolute;inset:0;transition:transform .18s ease-out;will-change:transform}
 .shape{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 22px 16px var(--shadow))}
-.dab{position:absolute;left:var(--x);top:var(--y);translate:-50% -50%;width:20.5%;aspect-ratio:1;border-radius:50%;
+.dab{position:absolute;left:var(--x);top:var(--y);translate:-50% -50%;width:20.5%;min-width:64px;min-height:64px;aspect-ratio:1;border-radius:50%;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#fff;text-decoration:none;font-weight:800;
-  font-size:clamp(.6rem,2.5vw,.82rem);text-shadow:0 1px 2px rgba(0,0,0,.35);text-align:center;-webkit-tap-highlight-color:transparent;
+  font-size:clamp(.65rem,2.5vw,.85rem);text-shadow:0 1px 2px rgba(0,0,0,.35);text-align:center;-webkit-tap-highlight-color:transparent;
   background:radial-gradient(circle at 34% 26%,rgba(255,255,255,.6) 0 7%,transparent 24%),radial-gradient(circle at 50% 42%,var(--a),var(--b));
   box-shadow:inset 0 -6px 10px rgba(0,0,0,.25),0 8px 12px rgba(60,25,0,.4);
-  transition:scale .2s cubic-bezier(.3,1.6,.5,1),filter .2s,box-shadow .2s;
+  transition:scale var(--transition-fast),filter var(--transition-fast),box-shadow var(--transition-fast);
   animation:pop .6s cubic-bezier(.2,1.5,.4,1) both;animation-delay:calc(var(--i)*90ms + 150ms)}
-.dab svg{width:clamp(20px,6.5vw,30px);height:clamp(20px,6.5vw,30px);fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
-.dab:hover,.dab:focus-visible{scale:1.12;filter:brightness(1.1);box-shadow:inset 0 -6px 10px rgba(0,0,0,.25),0 14px 18px rgba(60,25,0,.45);outline:none}
-.dab:focus-visible{outline:3px solid #fff}
-.dab:active{scale:.93;box-shadow:inset 0 5px 10px rgba(0,0,0,.4),0 3px 5px rgba(60,25,0,.4)}
+.dab svg{width:clamp(22px,6.5vw,30px);height:clamp(22px,6.5vw,30px);fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
+.dab:hover,.dab:focus{scale:1.12;filter:brightness(1.1);box-shadow:inset 0 -6px 10px rgba(0,0,0,.25),0 14px 18px rgba(60,25,0,.45)}
+.dab:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:4px;border-radius:50%}
+.dab:active{scale:.93;box-shadow:inset 0 5px 10px rgba(0,0,0,.4),0 3px 5px rgba(60,25,0,.4);transition-duration:80ms}
 @keyframes pop{from{opacity:0;scale:.2}to{opacity:1;scale:1}}
 
 /* brush at the side, resting on the notch */
@@ -91,11 +96,13 @@ footer .f1{font-weight:800;font-size:1.05rem}
 footer a{color:var(--cream)}
 
 /* dark mode switch */
-.theme{position:fixed;left:16px;bottom:16px;width:48px;height:48px;border-radius:50%;border:2px solid #b98a2d;background:#2a1a14;font-size:1.25rem;cursor:pointer;z-index:30;
-  box-shadow:0 5px 12px rgba(0,0,0,.4);display:grid;place-items:center}
-.theme span{display:block;transition:transform .5s}
+.theme{position:fixed;left:16px;bottom:16px;width:52px;height:52px;border-radius:50%;border:2px solid #b98a2d;background:#2a1a14;font-size:1.3rem;cursor:pointer;z-index:30;
+  box-shadow:0 5px 12px rgba(0,0,0,.4);display:grid;place-items:center;transition:transform var(--transition-fast)}
+.theme:hover{transform:scale(1.08)}
+.theme:active{transform:scale(.95)}
+.theme span{display:block;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 [data-theme="dark"] .theme span{transform:rotate(360deg)}
-.theme:focus-visible{outline:3px solid #fff}
+.theme:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:4px}
 
 @media (prefers-reduced-motion:reduce){.dab{animation:none}*{transition:none!important}}
 
@@ -111,3 +118,8 @@ html{overflow-x:hidden}
 .install{position:fixed;right:16px;bottom:16px;z-index:30;border:0;border-radius:999px;padding:12px 18px;font:800 .9rem "Nunito",sans-serif;
   background:var(--maroon);color:var(--cream);box-shadow:0 6px 14px rgba(0,0,0,.4);cursor:pointer}
 .install[hidden]{display:none}
+
+/* Skip link for accessibility */
+.skip-link{position:absolute;top:-100%;left:16px;z-index:9999;padding:12px 20px;background:var(--maroon);color:var(--cream);text-decoration:none;border-radius:0 0 8px 8px;font-weight:700;transition:top .2s}
+.skip-link:focus{top:0;outline:var(--focus-ring-width) solid var(--focus-ring)}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

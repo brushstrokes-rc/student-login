@@ -1,4 +1,4 @@
-const CACHE = "bs-v3";
+const CACHE = "bs-v4.1";
 const ASSETS = ["./", "index.html", "bs.css", "bs.js", "manifest.json", "icon-192.png", "icon-512.png", "logo-brushstrokes.png", "logo-ramanujan.png"];
 self.addEventListener("install", e => {
   // each file cached on its own, so one missing file never breaks the install
